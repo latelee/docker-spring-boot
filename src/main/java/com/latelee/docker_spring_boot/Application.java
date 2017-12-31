@@ -4,7 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
- 
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+
 /**
  * 主应用入口
  * @author <a href="http://latelee.org">latelee.org</a>
