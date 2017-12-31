@@ -11,17 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2017年12月30日
  */
 @SpringBootApplication
-@RestController
-public class Application {
+public class Application extends SpringBootServletInitializer {
 
-	@RequestMapping("/")
+    @RequestMapping("/")
 	public String home() {
 		return "Hello Docker World. <br />"
 				+ "Welcome to Late Lee website:<a href='http://latelee.org'>latelee.org</a></li>";
 	}
+    // 修改启动类，继承 SpringBootServletInitializer 并重写 configure 方法
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
 
 }

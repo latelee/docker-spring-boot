@@ -5,6 +5,7 @@
 
 	<groupId>com.latelee</groupId>
 	<artifactId>docker-spring-boot</artifactId>
+    <!-- war or jar -->
 	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<name>docker-spring-boot</name>
@@ -21,11 +22,24 @@
 	    <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+            -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 	</dependencies>
 
@@ -47,7 +61,7 @@
 						<resource>
 							<targetPath>/</targetPath>
 							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
+							<include>${project.build.finalName}.war</include>
 						</resource>
 					</resources>
 				</configuration>
